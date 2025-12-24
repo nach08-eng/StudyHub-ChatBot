@@ -109,28 +109,30 @@
         });
 
     </script>-->
+    <script>
     async function sendMessage() {
-  const input = document.getElementById("userInput");
-  const message = input.value;
+    const input = document.getElementById("userInput");
+    const message = input.value;
 
-  const response = await fetch("http://localhost:3000/chat", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ message }),
-  });
+    const response = await fetch("https://studyhub-chatbot.onrender.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ message }),
+    });
 
-  const data = await response.json();
+    const data = await response.json();
 
-  document.getElementById("chatbox").innerHTML +=
-    `<p><b>You:</b> ${message}</p>
-     <p><b>Studybud:</b> ${data.reply}</p>`;
+    document.getElementById("chatbox").innerHTML +=
+        `<p><b>You:</b> ${message}</p>
+        <p><b>Studybud:</b> ${data.reply}</p>`;
 
-  input.value = "";
-}
-
+    input.value = "";
+    }
+    </script>
 
 </body>
+
 
 </html>
